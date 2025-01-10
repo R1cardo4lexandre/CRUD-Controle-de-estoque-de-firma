@@ -4,9 +4,9 @@
 class StageSize {
 
     public:
-    float largura;
-    float comprimento;
-    float altura;
+    float width;
+    float length;
+    float height;
 
 };
 
