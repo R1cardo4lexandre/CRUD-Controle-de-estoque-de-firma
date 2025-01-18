@@ -21,6 +21,10 @@ std::fstream Log::logFile;
 std::string Log::logsHome = "logs";
 
 
+/**
+ *
+ * @return uma string de log construída a partir das strings recebidas
+ */
 std::string buildMessage(const std::string &, const std::string &);
 
 /*********************************************************************************************************

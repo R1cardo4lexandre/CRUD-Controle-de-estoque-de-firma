@@ -85,8 +85,15 @@ private:
 	 */
 	static std::string logsHome;
 
+	/**
+	 *
+	 * @return Um nome para arquivo de log
+	 */
 	static std::string getLogFileName();
 
+	/**
+	 *  Escreve a string recebida num arquivo de log
+	 */
 	static void write(const std::string &);
 };
 
