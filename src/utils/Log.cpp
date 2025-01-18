@@ -14,26 +14,14 @@
 #include<iostream>
 
 
-Log *Log::log = nullptr;
 
 std::fstream Log::logFile;
 
+
+std::string Log::logsHome = "logs";
+
+
 std::string buildMessage(const std::string &, const std::string &);
-
-/*********************************************************************************************************
-**********************************************************************************************************
-*********************************************************************************************************/
-
-std::string getLogFileName();
-
-std::string getLogFileName() {
-
-	std::string stamp = TimeUtils::getTimeStamp();
-
-	std::ranges::replace(stamp, ' ', '_'); // Replaces spaces in the filename with underscores
-
-	return  "logs/" + stamp + ".log";
-}
 
 /*********************************************************************************************************
 **********************************************************************************************************
@@ -111,4 +99,18 @@ void Log::finishLog(){
 std::string buildMessage(const std::string &token, const std::string &message) {
 
 	return TimeUtils::getTimeStamp() + "  " + token + ": " + message;
+}
+
+
+/**
+ * A timestamp usada no nome do arquivo é obtida a partir da função TimeUtils::getTimeStamp
+ * @return um nome de arquivo de log na forma logs/timestamp.log
+ */
+std::string Log::getLogFileName() {
+
+	std::string stamp = TimeUtils::getTimeStamp();
+
+	std::ranges::replace(stamp, ' ', '_'); // Replaces spaces in the filename with underscores
+
+	return logsHome + "/" + stamp + ".log";
 }
