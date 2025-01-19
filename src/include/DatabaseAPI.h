@@ -6,13 +6,15 @@
 
 #include <string>
 #include <map>
+#include <iostream>
+#include <vector>
 
 //Criação da Classe virtual do Banco de Dados para testes durente a implementação
 
 class DatabaseAPI {
 public:
-    virtual std::map<std::string, std::string> read(const std::string& tableName) const = 0;
-    virtual void write(const std::string& tableName, const std::map<std::string, std::string>& data) = 0;
+    virtual std::vector<std::map<std::string, std::string>> read(const std::string& tableName) const = 0;
+    virtual void write(const std::string& tableName, const std::vector<std::map<std::string, std::string>>& data) = 0;
     virtual ~DatabaseAPI() = default;
 };
 
