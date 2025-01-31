@@ -1,6 +1,6 @@
 #ifndef TRAVEL_H
 #define TRAVEL_H
-
+#include <iostream>
 #include "StageStructure.h"
 #include "date.h"
 

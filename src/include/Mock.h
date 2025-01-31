@@ -1,6 +1,6 @@
 #ifndef MOCK_H
 #define MOCK_H
-
+#include <iostream>
 #include "Travel.h"
 //Classe criada para realização de testes
 

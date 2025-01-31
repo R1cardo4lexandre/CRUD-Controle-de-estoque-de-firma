@@ -1,5 +1,6 @@
 #ifndef STAGE_SIZE_H
 #define STAGE_SIZE_H
+#include <iostream>
 
 /*Esta classe refere-se ao tamanho das estruturas que serão feitas na montagem.*/
 

@@ -1,6 +1,6 @@
 #ifndef STAGE_STRUCTURE_H
 #define STAGE_STRUCTURE_H
-
+#include <iostream>
 #include "StageSize.h"
 
 /*Esta classe refere-se às estruturas que serão feitas na montagem, como palcos ou house mixes.
