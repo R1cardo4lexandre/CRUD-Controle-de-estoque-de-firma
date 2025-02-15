@@ -13,6 +13,11 @@ public:
 
     static void start();
 
+    static bool isDone();
+
+private:
+
+    static bool _done;
 };
 
 
