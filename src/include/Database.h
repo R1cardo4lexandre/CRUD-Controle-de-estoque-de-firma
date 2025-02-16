@@ -11,8 +11,10 @@
 #include <map>
 #include <vector>
 
+#include "DatabaseAPI.h"
+
 // Classe responsável pela manipulação do Banco de Dados
-class Database {
+class Database : public DatabaseAPI {
 private:
     std::map<std::string, int> stock; // Nome do item e sua quantidade
     std::vector<std::string> history; // Registro das operações feitas
