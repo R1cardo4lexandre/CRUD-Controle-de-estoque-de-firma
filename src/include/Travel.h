@@ -1,6 +1,8 @@
 #ifndef TRAVEL_H
 #define TRAVEL_H
+
 #include <iostream>
+#include <chrono>
 #include "StageStructure.h"
 #include "date.h"
 
@@ -11,10 +13,28 @@
 
 class Travel {
 
-    StageStructure stageStructure;
+    StageStructure structure;
     std::string location;
     date::year_month_day startDate;
     date::year_month_day finalDate;
+
+    public:
+    Travel (){};
+
+    //get e set do atributo location
+    std::string getLocation(){return location;};
+    void setLocation(std::string location){this->location = location;};
+
+    //get e set do atributo startDate
+    date::year_month_day getStartDate(){return startDate;};
+    void setStartDate(int y, int m, int d) {this->startDate = date::year{y}/m/d;};
+
+    //get e set do atributo finalDate
+    date::year_month_day getFinalDate(){return finalDate;};
+    void setFinalDate(int y, int m, int d) {this->finalDate = date::year{y}/m/d;};
+
+    //operador de acesso para a classe StageStructure
+    StageStructure& getStructure(){return structure;};
 
 };
 

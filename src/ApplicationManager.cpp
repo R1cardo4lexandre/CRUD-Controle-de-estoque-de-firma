@@ -8,5 +8,5 @@
 
 void ApplicationManager::start() {
 
-    Log::initLog();
+    //Log::initLog();
 }

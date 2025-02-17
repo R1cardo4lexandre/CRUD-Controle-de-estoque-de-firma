@@ -1,18 +1,23 @@
 #ifndef MOCK_H
 #define MOCK_H
+
 #include <iostream>
+#include <vector>
 #include "Travel.h"
+
+using namespace std;
+
 //Classe criada para realização de testes
 
 class Mock {
 
     private:
-    Travel travel1;
-    Travel travel2;
-    Travel travel3;
+    vector<Travel> travel;;
 
     public:
-    Mock();
+    Mock ();
+    void read();
+    void print();
     
 };
 

@@ -1,5 +1,6 @@
 #ifndef STAGE_STRUCTURE_H
 #define STAGE_STRUCTURE_H
+
 #include <iostream>
 #include "StageSize.h"
 
@@ -11,6 +12,13 @@ class StageStructure {
 
     std::string type;
     StageSize size;
+
+    public:
+    StageStructure (){};
+
+    std::string getType(){return type;};
+    void setType(std::string type){this->type = type;};
+    StageSize& getSize(){return size;};
 
 };
 

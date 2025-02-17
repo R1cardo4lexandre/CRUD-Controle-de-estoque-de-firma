@@ -1,5 +1,6 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
+
 #include <iostream>
 
 /*Esta classe refere-se aos componentes utilizados na montagem das estruturas, sejam peças
