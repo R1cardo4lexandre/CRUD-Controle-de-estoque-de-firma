@@ -8,8 +8,9 @@
 
 int main() {
 
-    Travel travel = Travel();
     ApplicationManager::start();
 
-    std::cout << std::endl;
+    Mock mock = Mock();
+    mock.read();
+    mock.print();
 }

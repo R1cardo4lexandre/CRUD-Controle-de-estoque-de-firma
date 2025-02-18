@@ -13,6 +13,13 @@ class StageSize {
 
     public:
     StageSize (){};
+
+    StageSize(float width, float length, float height)
+        : width(width),
+          length(length),
+          height(height) {
+    }
+
     float getWidth() { return width; }
     float getLength() { return length; }
     float getHeight() { return height; }

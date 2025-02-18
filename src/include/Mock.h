@@ -12,7 +12,11 @@ using namespace std;
 class Mock {
 
     private:
-    vector<Travel> travel;;
+    static vector<Travel> travelmocks;
+    static vector<float> floatmocks;
+    static vector<std::string> stringmocks1;
+    static vector<std::string> stringmocks2;
+    static vector<int> datemocks;
 
     public:
     Mock ();
