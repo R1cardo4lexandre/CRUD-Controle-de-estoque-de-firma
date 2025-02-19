@@ -35,6 +35,7 @@ class Travel {
 
     //operador de acesso para a classe StageStructure
     StageStructure& getStructure(){return structure;};
+    void setStructure(StageStructure structure){this->structure = structure;};
 
 };
 
