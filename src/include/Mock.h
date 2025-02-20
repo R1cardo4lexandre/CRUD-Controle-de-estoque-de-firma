@@ -5,7 +5,7 @@
 #include <vector>
 #include "Travel.h"
 
-using namespace std;
+using namespace std; // TODO: nada de "using namespace" em cabeçalho
 
 //Classe criada para realização de testes
 
