@@ -20,7 +20,7 @@ class Mock {
 
     public:
     Mock ();
-    void read();
+    void read(); // TODO: esse método deveria ser estático; também seria bom mudar o nome dele para algo como "initMock"
     void print();
     
 };
