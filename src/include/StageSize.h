@@ -5,6 +5,8 @@
 
 /*Esta classe refere-se ao tamanho das estruturas que serão feitas na montagem.*/
 
+// TODO: É necessário mudar as definições das funções pros arquivos-fonte
+// TODO: esse arquivo vai dar erro na compilação, faltam ponto e vírgula em vários lugares
 class StageSize {
 
     float width;
