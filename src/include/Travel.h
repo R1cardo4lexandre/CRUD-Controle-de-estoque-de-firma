@@ -11,6 +11,7 @@
     serão montadas e o local da montagem.
   - Os atributos referentem ao tempo são para definir a data inicial e final da montagem.*/
 
+// TODO: precisa mover as definições para o arquivo-fonte
 class Travel {
 
     StageStructure structure;
