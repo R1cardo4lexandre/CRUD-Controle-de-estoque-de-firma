@@ -8,7 +8,7 @@
   - O atributo type é para definir qual o tipo de estrutura, como os exemplos citados acima.
   - O atributo size é para referenciar o tamanho da estrutura.*/
 
-// TODO: É necessário mudar as definições das funções pros arquivos-fonte
+// TODO: É necessário mudar as definições das funções pros arquivos-fonte.
 
 class StageStructure {
 
