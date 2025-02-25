@@ -1,26 +1,23 @@
 #ifndef MOCK_H
 #define MOCK_H
 
-#include <iostream>
 #include <vector>
 #include "Travel.h"
-
-using namespace std; // TODO: nada de "using namespace" em cabeçalho
 
 //Classe criada para realização de testes
 
 class Mock {
 
     private:
-    static vector<Travel> travelmocks;
-    static vector<float> floatmocks;
-    static vector<std::string> stringmocks1;
-    static vector<std::string> stringmocks2;
-    static vector<int> datemocks;
+    static std::vector<Travel> travelmocks;
+    static std::vector<float> floatmocks;
+    static std::vector<std::string> stringmocks1;
+    static std::vector<std::string> stringmocks2;
+    static std::vector<int> datemocks;
 
     public:
     Mock ();
-    void read(); // TODO: esse método deveria ser estático; também seria bom mudar o nome dele para algo como "initMock"
+    static void initMock();
     void print();
     
 };

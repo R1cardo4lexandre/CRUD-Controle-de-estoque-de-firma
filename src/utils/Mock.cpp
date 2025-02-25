@@ -8,7 +8,7 @@ std::vector<int> Mock::datemocks = {1,2,3,4,5,6,7,8,9};
 
 Mock::Mock () {};
 
-void Mock::read() {
+void Mock::initMock() {
 
     for (int i = 0; i < travelmocks.size(); i++) {
 
@@ -25,13 +25,13 @@ void Mock::read() {
 void Mock::print() {
 
     for (int i=0; i<3; i++) {
-        cout << "Local da viagem: " << travelmocks[i].getLocation() << endl << "Tipo da estrutura: " <<
-            travelmocks[i].getStructure().getType() << endl << "Tamanho: " <<
+        std::cout << "Local da viagem: " << travelmocks[i].getLocation() << std::endl << "Tipo da estrutura: " <<
+            travelmocks[i].getStructure().getType() << std::endl << "Tamanho: " <<
             travelmocks[i].getStructure().getSize().getWidth() << " " <<
             travelmocks[i].getStructure().getSize().getLength() << " " <<
-            travelmocks[i].getStructure().getSize().getHeight() << endl << "Data da viagem: " <<
-            travelmocks[i].getStartDate() << endl << "Prazo final para a montagem: " <<
-            travelmocks[i].getFinalDate() << endl << endl;
+            travelmocks[i].getStructure().getSize().getHeight() << std::endl << "Data da viagem: " <<
+            travelmocks[i].getStartDate() << std::endl << "Prazo final para a montagem: " <<
+            travelmocks[i].getFinalDate() << std::endl << std::endl;
     }
 }
 
