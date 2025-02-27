@@ -1,4 +1,4 @@
-#include "../include/StageStructure.h"
+#include "StageStructure.h"
 
 StageStructure::StageStructure() {}
 

@@ -1,6 +1,4 @@
-// TODO: remover esse caminho de arquivo, dever ser somente #include "../include/StageSize.h".
-// TODO: checar os outros arquivos e ver se há algum include com esse probleam
-#include "../include/StageSize.h"
+#include "StageSize.h"
 
 StageSize::StageSize(){}
 

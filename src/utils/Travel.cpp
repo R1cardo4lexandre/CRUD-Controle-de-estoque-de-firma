@@ -1,4 +1,4 @@
-#include "../include/Travel.h"
+#include "Travel.h"
 
 Travel::Travel() {}
 

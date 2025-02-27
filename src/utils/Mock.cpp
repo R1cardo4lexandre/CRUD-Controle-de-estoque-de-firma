@@ -1,4 +1,4 @@
-#include "../include/Mock.h"
+#include "Mock.h"
 
 std::vector<Travel> Mock::travelmocks(3);
 std::vector<float> Mock::floatmocks = {61.25f, 25.96f, 9.83f, 4.23f, 5.04f, 47.59f, 5.93f, 82.82f, 5.60f};
