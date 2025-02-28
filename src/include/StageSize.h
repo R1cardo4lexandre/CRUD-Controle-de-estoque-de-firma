@@ -9,6 +9,19 @@ class StageSize {
     float length;
     float height;
 
+    public:
+    StageSize();
+
+    StageSize(float, float, float);
+
+    float getWidth();
+    float getLength();
+    float getHeight();
+
+    void setWidth(float);
+    void setLength(float);
+    void setHeight(float);
+
 };
 
 #endif //STAGE_SIZE_H

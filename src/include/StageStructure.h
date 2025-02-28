@@ -1,6 +1,7 @@
 #ifndef STAGE_STRUCTURE_H
 #define STAGE_STRUCTURE_H
 
+#include <iostream>
 #include "StageSize.h"
 
 /*Esta classe refere-se às estruturas que serão feitas na montagem, como palcos ou house mixes.
@@ -11,6 +12,18 @@ class StageStructure {
 
     std::string type;
     StageSize size;
+
+    public:
+
+    StageStructure ();
+
+    StageStructure (std::string);
+
+    std::string getType();
+    StageSize getSize();
+
+    void setType(std::string);
+    void setSize(StageSize);
 
 };
 
