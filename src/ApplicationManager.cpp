@@ -11,7 +11,5 @@ void ApplicationManager::start() {
 
     //Log::initLog();
 
-    Mock mock = Mock();
-    mock.initMock();
-    mock.print();
+    Mock::initMock();
 }
