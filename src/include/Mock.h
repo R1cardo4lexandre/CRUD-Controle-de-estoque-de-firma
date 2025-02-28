@@ -18,7 +18,6 @@ class Mock {
     public:
     Mock ();
     static void initMock();
-    void print();
     
 };
 

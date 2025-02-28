@@ -21,18 +21,3 @@ void Mock::initMock() {
         travelmocks[i].setFinalDate(datemocks[i+2], datemocks[i], datemocks[i+1]);
     }
 }
-
-void Mock::print() {
-
-    for (int i=0; i<3; i++) {
-        std::cout << "Local da viagem: " << travelmocks[i].getLocation() << std::endl << "Tipo da estrutura: " <<
-            travelmocks[i].getStructure().getType() << std::endl << "Tamanho: " <<
-            travelmocks[i].getStructure().getSize().getWidth() << " " <<
-            travelmocks[i].getStructure().getSize().getLength() << " " <<
-            travelmocks[i].getStructure().getSize().getHeight() << std::endl << "Data da viagem: " <<
-            travelmocks[i].getStartDate() << std::endl << "Prazo final para a montagem: " <<
-            travelmocks[i].getFinalDate() << std::endl << std::endl;
-    }
-}
-
-
