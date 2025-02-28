@@ -11,22 +11,21 @@
 | Tipos definidos | em pascal case (palavras juntas e somente a primeira letra de cada palavra deve ser maúscula) | AlgumTipo |
 | Nomes de funções | em camel case (como pascal case, mas a primeira letra da primeira palavra é minúscula) | algumaFuncao |
 | Tags para estruturas | O nome do tipo da estrutura em Pascal case, precedido por um “s” | sAlgumTipo |
-| Nomes de campos | camel case |  |
+| Nomes de campos não constantes | camel case |  |
+| Nomes de campos constantes | todo em maiúsculas |  |
 
 # 1. Convenções de arquivos
 
 - Todos os arquivos devem terminar com pelo menos uma linha vazia
 - Grupos de entidades de código devem ser separados por separadores adequados
-- Os **#include**s referentes a arquivos de cabeçalho devem aparecer agrupados:
+- Os **#include**s devem aparecer agrupados:
     - Primeiro os cabeçalhos de usuário (que usam aspas), depois os de sistema (que usam <>)
         
         Isso é para diminuir a probabilidade de arquivos de cabeçalho não autossuficientes — ver 1.2 — passarem despercebidos
         
     - Os arquivos em cada grupo devem aparecer em ordem alfabética
-    - Os grupos de arquivos de usuário devem aparecer em ordem alfabética
     - Deve haver pelo menos uma linha vazia entre o último grupo e a primeira linha de código depois dele
-- Todo **#endif** deve ter ao seu lado um comentário com a condição que eles testam na forma /*  CONDIÇÃO  */;
-- Dois nomes de arquivos não devem diferir somente pelos nomes;
+- Todo **#endif** deve ter ao seu lado um comentário com a condição que eles testam na forma //CONDIÇÃO;
 - As definições nos arquivos fonte devem acompanhar a ordem das declarações nos arquivos de cabeçalho;
 - Uma tabulação deve valer 8 espaços
 
@@ -35,7 +34,7 @@
 ## 1.1.1 Arquivos com definições de funções
 
 - O nome do arquivo e o nome da função devem ser o mesmo, só mudando o padrão;
-- O primeiro arquivo de cabeçalho a ser incluído deve ser o da própria função;
+- O primeiro arquivo de cabeçalho a ser incluído deve ser o da própria função, e deve ficar separado dos outros **include**s;
 - Imediatamente antes do cabeçalho da função deve haver um bloco de comentários no formato do Doxygen informando como a função funciona;
 
 ## 1.2 Arquivos de cabeçalho
@@ -57,7 +56,15 @@
 
 - O nome do arquivo e o nome da função devem ser o mesmo, só mudando o padrão
 - Devem conter todos os **#include**s necessários à declaração da função
-- Imediatamente antes da declaração da função deve haver um bloco de comentários no formato do Doxygen informando o que a função faz
+- Imediatamente antes da declaração da função deve haver um bloco de comentários no formato do Doxygen informando o que a função faz.
+
+## 1.2.1 Arquivos com declarações de classes
+
+- O nome do arquivo e o nome da classe devem ser exatamente o mesmo
+- Devem conter todos os **#include**s necessários à declaração da classe
+- Imediatamente antes da declaração da classe deve haver um bloco de comentários no formato do Doxygen informando o que a classe faz
+- Os membros públicos devem aparecer primeiro, seguidos dos membros protegidos, e, por último, os privados
+- A linha com o modificador de acesso não deve ser indentada
 
 # 2. Convenções de struturas, uniões e enumerações
 
