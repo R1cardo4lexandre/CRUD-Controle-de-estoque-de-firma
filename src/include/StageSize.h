@@ -5,11 +5,7 @@
 
 class StageSize {
 
-    float width;
-    float length;
-    float height;
-
-    public:
+public:
     StageSize();
 
     StageSize(float, float, float);
@@ -21,6 +17,11 @@ class StageSize {
     void setWidth(float);
     void setLength(float);
     void setHeight(float);
+
+private:
+    float width;
+    float length;
+    float height;
 
 };
 

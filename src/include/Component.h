@@ -9,6 +9,18 @@
 
 class Component {
 
+public:
+    Component();
+
+    std::string getName();
+    std::string getType();
+    std::string getDescription();
+
+    void setName(std::string);
+    void setType(std::string);
+    void setDescription(std::string);
+
+private:
     std::string name;
     std::string type;
     std::string description;
