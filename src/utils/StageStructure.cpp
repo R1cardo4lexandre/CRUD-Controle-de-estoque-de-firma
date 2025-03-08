@@ -7,7 +7,7 @@ StageStructure::StageStructure(std::string t) {
 }
 
 std::string StageStructure::getType(){return type;}
-StageSize StageStructure::getSize(){return size;};
-
 void StageStructure::setType(std::string type){this->type = type;};
+
+StageSize StageStructure::getSize(){return size;};
 void StageStructure::setSize(StageSize size){this->size = size;};

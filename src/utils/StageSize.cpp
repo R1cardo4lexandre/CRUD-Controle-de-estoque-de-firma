@@ -9,9 +9,10 @@ StageSize::StageSize(float w, float l, float h) {
 }
 
 float StageSize::getWidth() {return width;}
-float StageSize::getLength() {return length;}
-float StageSize::getHeight() {return height;}
-
 void StageSize::setWidth(float width) {this->width = width;}
+
+float StageSize::getLength() {return length;}
 void StageSize::setLength(float length) {this->length = length;}
+
+float StageSize::getHeight() {return height;}
 void StageSize::setHeight(float height) {this->height = height;}

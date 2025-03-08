@@ -15,13 +15,15 @@ public:
     Travel ();
 
     std::string getLocation();
-    date::year_month_day getStartDate();
-    date::year_month_day getFinalDate();
-    StageStructure getStructure();
-
     void setLocation(std::string);
+
+    date::year_month_day getStartDate();
     void setStartDate(int, int, int);
+
+    date::year_month_day getFinalDate();
     void setFinalDate(int, int, int);
+
+    StageStructure getStructure();
     void setStructure(StageStructure);
 
 private:

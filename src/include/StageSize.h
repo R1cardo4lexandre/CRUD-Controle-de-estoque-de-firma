@@ -11,11 +11,12 @@ public:
     StageSize(float, float, float);
 
     float getWidth();
-    float getLength();
-    float getHeight();
-
     void setWidth(float);
+
+    float getLength();
     void setLength(float);
+
+    float getHeight();
     void setHeight(float);
 
 private:

@@ -13,11 +13,12 @@ public:
     Component();
 
     std::string getName();
-    std::string getType();
-    std::string getDescription();
-
     void setName(std::string);
+
+    std::string getType();
     void setType(std::string);
+
+    std::string getDescription();
     void setDescription(std::string);
 
 private:

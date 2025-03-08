@@ -17,9 +17,9 @@ public:
     StageStructure (std::string);
 
     std::string getType();
-    StageSize getSize();
-
     void setType(std::string);
+
+    StageSize getSize();
     void setSize(StageSize);
 
 private:
