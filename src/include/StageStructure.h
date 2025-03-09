@@ -3,6 +3,8 @@
 
 #include "StageSize.h"
 
+#include <string>
+
 #include <iostream>
 
 /*Esta classe refere-se às estruturas que serão feitas na montagem, como palcos ou house mixes.

@@ -4,6 +4,8 @@
 
 #ifndef INTERFACEMANAGER_H
 #define INTERFACEMANAGER_H
+#include "ViewInterface.h"
+
 #include <string>
 #include <vector>
 
@@ -14,11 +16,15 @@ public:
 
     static void update();
 
+    static void printInvalidOption();
+
+    static void setCurrentView(ViewInterface *);
+
 private:
 
-    static int CURRENT_VIEW;
+    static ViewInterface *CURRENT_VIEW;
 
-    enum VIEW_CONSTANTS {MENU, INSERT};
+    enum VIEW_CONSTANTS {MENU, INSERT, LIST_ALL};
 
     static std::vector<void (*)()> views;
 
@@ -34,6 +40,8 @@ private:
 
     static void p_Insert(std::string&);
 
-    static void printInvalidOption();
+    static void s_ListAll();
+
+    static void p_ListAll(std::string&);
 };
 #endif /* INTERFACEMANAGER_H */

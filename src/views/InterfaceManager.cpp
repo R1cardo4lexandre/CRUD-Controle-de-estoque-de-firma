@@ -2,28 +2,16 @@
 // Created by cicero on 15/02/25.
 //
 
-#include "../include/InterfaceManager.h"
+#include "Travel.h"
+#include "ViewMenu.h"
 
-#include <chrono>
+#include <InterfaceManager.h>
 #include <iostream>
 #include <ostream>
 #include <string>
-#include <thread>
 #include <vector>
-#include <bits/atomic_base.h>
 
-int InterfaceManager::CURRENT_VIEW = InterfaceManager::MENU;
-
-std::vector<void (*)()> InterfaceManager::views = {InterfaceManager::s_Menu, InterfaceManager::s_Insert};
-
-std::vector<void (*)(std::string&)> InterfaceManager::input_processors = {InterfaceManager::p_Menu, InterfaceManager::p_Insert};
-
-void InterfaceManager::s_Menu() {
-
-    const std::vector<std::string> OPTIONS = { "Inserir", "Listar todos", "Exibir um", "Alterar", "Remover", "Exibir Relatório", "Sair"};
-
-    for (int i = 0; i < OPTIONS.size(); i++) std::cout << (i + 1) << ". " << OPTIONS[i] << std::endl;
-}
+ViewInterface *InterfaceManager::CURRENT_VIEW = new ViewMenu();
 
 std::string InterfaceManager::getInput() {
 
@@ -34,34 +22,31 @@ std::string InterfaceManager::getInput() {
     return input;
 }
 
-void InterfaceManager::p_Menu(std::string &input) {
+void InterfaceManager::s_Insert() {
 
-    int option;
+    Travel new_travel;
 
-    try {
-        option = std::stoi(input);
-    }
-    catch (std::invalid_argument &e) {
-        option = -1;
-    }
+    std::string input;
 
-    switch (option) {
+    std::cin >> input;
 
-        case 1:
-            CURRENT_VIEW = InterfaceManager::INSERT;
-        break;
 
-        default:
-            printInvalidOption();
-    }
 }
 
-void InterfaceManager::s_Insert() {
+void InterfaceManager::p_Insert(std::string &) {
+}
+
+void InterfaceManager::s_ListAll() {
+
+    std::vector<Travel> new_travel;
+}
+
+void InterfaceManager::p_ListAll(std::string &) {
 }
 
 void InterfaceManager::update() {
 
-    views[CURRENT_VIEW]();
+    CURRENT_VIEW -> output();
 
     std::cout << std::endl;
 
@@ -69,7 +54,12 @@ void InterfaceManager::update() {
 
     std::cout << std::endl;
 
-    input_processors[CURRENT_VIEW](input);
+    CURRENT_VIEW -> processInput(input);
+}
+
+void InterfaceManager::setCurrentView(ViewInterface *view) {
+
+    CURRENT_VIEW = view;
 }
 
 void InterfaceManager::printInvalidOption() {

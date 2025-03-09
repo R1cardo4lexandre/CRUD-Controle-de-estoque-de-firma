@@ -3,8 +3,6 @@
 //
 
 #include "InterfaceManager.h"
-#include "TableView.h"
-#include "ftxui/component/component.hpp"
 #include "ftxui/component/screen_interactive.hpp"
 #include "include/ApplicationManager.h"
 #include "ApplicationManager.h"
