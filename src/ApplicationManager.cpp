@@ -3,10 +3,12 @@
 //
 
 #include "Database.h"
-
 #include "ApplicationManager.h"
+#include "Mock.h"
 
 void ApplicationManager::start() {
+
+    Mock::initMock();
 
     database = new Database();
 }
