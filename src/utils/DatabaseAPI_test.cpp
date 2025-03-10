@@ -4,6 +4,8 @@
 
 //Classe exemplo para os testes.
 
+#include "DatabaseAPI.h"
+
 class DatabaseAPI_test : public DatabaseAPI {
 public:
     //Aqui é feita a leitura do item e sua quantidade.

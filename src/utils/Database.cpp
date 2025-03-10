@@ -2,93 +2,99 @@
 // Created by bruno on 28/01/2025.
 //
 
+#include "StringUtils.h"
 #include "Database.h"
+
+#include <fstream>
 #include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+#include <regex>
+
+std::string Database::COLUMN_SEPARATOR = "@3*&!";
+
+std::string Database::TABLE_SEPARATOR = "endtable";
 
 // Construtor que carrega os dados do estoque para a memória
-Database::Database() {
-    loadData();
+Database::Database() : DB_FILE_NAME("database.txt") {
 }
 
-// Função para carregar os dados do arquivo
-void Database::loadData() {
-    std::ifstream file("estoque.txt"); // Abre o arquivo do estoque para leitura
-    if (!file) {
-        std::cerr << "Erro: Nenhum arquivo encontrado!\n";
-        std::ofstream newfile("estoque.txt"); // Cria um arquivo vazio
-            if (newfile) {
-              newfile << "Nome, Quantidade\n"; // Garante que o arquivo já tenha inicialização
-              newfile.close();
+Database::~Database() = default;
+
+
+std::vector<std::map<std::string, std::string> > Database::read(const std::string &tableName) const {
+    std::ifstream dbfile(DB_FILE_NAME); // Abre o arquivo do estoque para leitura
+    std::vector<std::map<std::string, std::string> > data;
+    std::vector<std::string> keys;
+
+    if (dbfile) {
+        std::string line;
+        bool addRow = false;
+        std::vector<std::string> rows;
+
+        while (std::getline(dbfile, line)) {
+            if (line == tableName) {
+                addRow = true;
+                continue;
+            } else if (line == TABLE_SEPARATOR) {
+                addRow = false;
+                continue;
             }
-        return;
+
+            if (addRow) rows.emplace_back(line);
+        }
+
+        if (rows.size() > 1) {
+            keys = StringUtils::split(rows[0], COLUMN_SEPARATOR);
+
+
+            for (int i = 1; i < rows.size(); i++) {
+                std::map<std::string, std::string> row;
+
+                std::vector<std::string> split = StringUtils::split(rows[i], COLUMN_SEPARATOR);
+
+                for (int i = 0; i < keys.size(); ++i) row.insert({keys[i], split[i]});
+
+                data.emplace_back(row);
+            }
+        }
     }
 
-    stock.clear(); // Limpa os dados atuais antes de carregar o arquivo
-    std::string name;
-    int quantity;
-    while (file >> name >> quantity) {
-      stock[name] = quantity;
-    }
-    file.close();
+    return data;
 }
 
 // Função que salva os dados do estoque no arquivo
-void Database::saveData() const {
-    std::ofstream file("estoque.txt");
-    if (!file) {
-      std::cerr << "Erro: Não foi possível salvar os dados!\n";
-      return;
-    }
-    for (const auto& [name, quantity] : stock) {
-      file << name << " " << quantity << "\n";
-    }
-    file.close();
+void Database::write(const std::string &tableName, const std::vector<std::map<std::string, std::string> > &data) {
+    std::ofstream dbfile(DB_FILE_NAME, std::ios::app);
+    std::vector<std::string> keys;
 
+    if (!dbfile) {
+        std::cerr << "Erro: Não foi possível salvar os dados!\n";
+        return;
+    }
+
+    dbfile << tableName << std::endl;
+
+    for (auto m: data[0]) keys.emplace_back(m.first);
+
+    dbfile << StringUtils::join(keys, COLUMN_SEPARATOR) << std::endl;
+
+    for (auto d: data) {
+        std::vector<std::string> row;
+
+        for (std::string k: keys) row.emplace_back(d.at(k));
+
+        dbfile << StringUtils::join(row, COLUMN_SEPARATOR) << std::endl;
+    }
+
+    dbfile << TABLE_SEPARATOR << std::endl << std::endl;
+
+    dbfile.close();
 }
 
-// Adiciona um novo item ou aumenta a quantidade
-void Database::addItem(const std::string name, int quantity) {
-    stock[name] += quantity;
-    history.push_back("Adicionado: " + name + " (" + std::to_string(quantity) + ")");
-    saveData();
-}
+void Database::clear() {
+    std::ofstream dbfile(DB_FILE_NAME);
 
-// Retira quantidades de itens
-bool Database::removeItem(const std::string name, int quantity) {
-    auto it = stock.find(name);
-    if (it == stock.end()) {
-      std::cerr << "Erro: Item não encontrado!\n";
-      return false;
-    }
-    if (it->second < quantity) {
-      std::cerr << "Erro: Quantidade insuficiente no estoque!\n";
-      return false;
-    }
-
-    it->second -= quantity; // Reduz a quantidade do item
-    history.push_back("Retirado: " + name + " (" + std::to_string(quantity) + ")");
-
-    if (it->second == 0) {
-        std::cout << "Aviso: O item '" << name << "' está com estoque zerado.\n";
-    }
-
-    saveData();
-    return true;
-
-}
-
-// Exibe o estoque atual
-void Database::showData() const {
-    std::cout << "Estoque atual:\n";
-    for (const auto& [name, quantity] : stock) {
-      std::cout << "- " << name << ": " << quantity << "\n";
-    }
-}
-
-// Exibe o histórico de operações
-void Database::showHistory() const {
-    std::cout << "Histórico de operações:\n";
-    for (const auto& entry : history) { // "Variavel" entry é criada para armazenar os dados e ser exibida
-      std::cout << entry << "\n";
-    }
+    dbfile << "";
 }

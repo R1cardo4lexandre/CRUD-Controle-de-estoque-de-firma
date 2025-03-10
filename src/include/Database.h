@@ -5,41 +5,34 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include <iostream>
-#include <fstream>
+#include "DatabaseAPI.h"
+
 #include <string>
 #include <map>
 #include <vector>
 
-#include "DatabaseAPI.h"
-
 // Classe responsável pela manipulação do Banco de Dados
 class Database : public DatabaseAPI {
-private:
-    std::map<std::string, int> stock; // Nome do item e sua quantidade
-    std::vector<std::string> history; // Registro das operações feitas
-
-    // Função para carregar os dados do arquivo para a memória
-    void loadData();
-
-    // Função para salvar os dados da memória para o arquivo
-    void saveData() const;
 
 public:
     // Construtor que carrega os dados ao iniciar
     Database();
 
-    // Adiciona um novo item ao estoque
-    void addItem(const std::string& name, int quantity);
+    std::vector<std::map<std::string, std::string>> read(const std::string &tableName) const override;
 
-    // Retira uma determinada quantidade do estoque
-    void removeItem(const std::string& name, int quantity);
+    void write(const std::string &tableName, const std::vector<std::map<std::string, std::string>> &data) override;
 
-    // Exibe o estoque
-    void showData() const;
+    ~Database() override;
 
-    // Exibe o histórico das operções
-    void showHistory() const;
+    void clear() override;
+
+private:
+
+    std::string DB_FILE_NAME;
+
+    static std::string COLUMN_SEPARATOR;
+
+    static std::string TABLE_SEPARATOR;
 };
 
 #endif //DATABASE_H

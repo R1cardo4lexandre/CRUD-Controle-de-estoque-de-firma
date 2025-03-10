@@ -2,11 +2,11 @@
 // Created by cicero on 06/01/25.
 //
 
-#include "include/ApplicationManager.h"
+#include "Database.h"
 
-#include "include/Log.h"
+#include "ApplicationManager.h"
 
 void ApplicationManager::start() {
 
-    Log::initLog();
+    database = new Database();
 }
