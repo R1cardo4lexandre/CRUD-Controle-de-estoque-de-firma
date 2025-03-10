@@ -4,7 +4,7 @@
 
 #ifndef APPLICATIONMANAGER_H
 #define APPLICATIONMANAGER_H
-
+#include "DatabaseAPI.h"
 
 
 class ApplicationManager {
@@ -13,6 +13,7 @@ public:
 
     static void start();
 
+    static DatabaseAPI *database;
 };
 
 

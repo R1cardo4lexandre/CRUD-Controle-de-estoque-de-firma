@@ -2,14 +2,13 @@
 // Created by cicero on 06/01/25.
 //
 
+#include "Database.h"
 #include "ApplicationManager.h"
 #include "Mock.h"
 
-#include "Log.h"
-
 void ApplicationManager::start() {
 
-    //Log::initLog();
-
     Mock::initMock();
+
+    database = new Database();
 }
