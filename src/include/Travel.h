@@ -11,8 +11,24 @@
 
 class Travel {
 
-    StageStructure stageStructure;
+public:
+    Travel ();
+
+    std::string getLocation();
+    void setLocation(std::string);
+
+    date::year_month_day getStartDate();
+    void setStartDate(int, int, int);
+
+    date::year_month_day getFinalDate();
+    void setFinalDate(int, int, int);
+
+    StageStructure getStructure();
+    void setStructure(StageStructure);
+
+private:
     std::string location;
+    StageStructure structure;
     date::year_month_day startDate;
     date::year_month_day finalDate;
 

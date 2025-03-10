@@ -2,11 +2,14 @@
 // Created by cicero on 06/01/25.
 //
 
-#include "include/ApplicationManager.h"
+#include "ApplicationManager.h"
+#include "Mock.h"
 
-#include "include/Log.h"
+#include "Log.h"
 
 void ApplicationManager::start() {
 
-    Log::initLog();
+    //Log::initLog();
+
+    Mock::initMock();
 }
