@@ -17,7 +17,7 @@ public:
 
     static void insert(Travel);
 
-    static void del(Repository*);
+    static void deleteTravel(Travel);
 
 private:
 
