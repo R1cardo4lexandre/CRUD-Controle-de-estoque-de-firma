@@ -9,8 +9,8 @@ void Repository::insert(Travel t) {
    travels.emplace_back(t);
 }
 
-void Repository::del(Repository *r) {
+void Repository::deleteTravel(Travel t) {
 
-    delete r;
+    delete t;
 }
 
