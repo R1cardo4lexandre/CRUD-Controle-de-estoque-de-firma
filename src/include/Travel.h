@@ -1,8 +1,8 @@
 #ifndef TRAVEL_H
 #define TRAVEL_H
 
-#include "StageStructure.h"
 #include "date.h"
+#include "StageStructure.h"
 
 /*Esta classe será usada para registro de viagens de trabalho.
   - Os atributos stageStructure e location referem-se, respectivamente, às estruturas que

@@ -2,11 +2,13 @@
 // Created by cicero on 10/03/25.
 //
 
-#ifndef STRINGUTILS_H
-#define STRINGUTILS_H
+#ifndef STRING_UTILS_H
+#define STRING_UTILS_H
+
 #include <string>
 #include <vector>
 
+//TODO: essa função não tá comentada
 
 class StringUtils {
 
@@ -19,4 +21,4 @@ public:
 
 
 
-#endif /* STRINGUTILS_H */
+#endif /* STRING_UTILS_H */

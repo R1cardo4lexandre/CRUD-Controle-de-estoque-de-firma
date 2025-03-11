@@ -2,10 +2,12 @@
 // Created by cicero on 06/01/25.
 //
 
-#ifndef APPLICATIONMANAGER_H
-#define APPLICATIONMANAGER_H
+#ifndef APPLICATION_MANAGER_H
+#define APPLICATION_MANAGER_H
+
 #include "DatabaseAPI.h"
 
+//TODO: essa função não tá comentada
 
 class ApplicationManager {
 
@@ -18,4 +20,4 @@ public:
 
 
 
-#endif //APPLICATIONMANAGER_H
+#endif //APPLICATION_MANAGER_H

@@ -2,15 +2,15 @@
 // Created by bruno on 28/01/2025.
 //
 
-#include "StringUtils.h"
 #include "Database.h"
+#include "StringUtils.h"
 
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <regex>
 #include <string>
 #include <vector>
-#include <regex>
 
 std::string Database::COLUMN_SEPARATOR = "@3*&!";
 

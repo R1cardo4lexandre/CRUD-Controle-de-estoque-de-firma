@@ -4,11 +4,13 @@
 #ifndef DATABASE_API_H
 #define DATABASE_API_H
 
-#include <string>
 #include <map>
+#include <string>
 #include <vector>
 
-//Criação da Classe virtual do Banco de Dados para testes durente a implementação
+/*
+    Criação da Classe virtual do Banco de Dados para testes durente a implementação
+*/
 
 class DatabaseAPI {
 public:
@@ -19,4 +21,3 @@ public:
 };
 
 #endif // DATABASE_API_H
-

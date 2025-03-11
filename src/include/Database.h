@@ -7,12 +7,16 @@
 
 #include "DatabaseAPI.h"
 
-#include <string>
 #include <map>
+#include <string>
 #include <vector>
 
-// Classe responsável pela manipulação do Banco de Dados
+/*
+    Classe responsável pela manipulação do Banco de Dados
+*/
+
 class Database : public DatabaseAPI {
+ */
 
 public:
     // Construtor que carrega os dados ao iniciar

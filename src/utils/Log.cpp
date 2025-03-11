@@ -10,8 +10,8 @@
 
 #include <algorithm>
 #include <filesystem>
-#include<fstream>
-#include<iostream>
+#include <fstream>
+#include <iostream>
 
 
 Log *Log::log = nullptr;
