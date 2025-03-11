@@ -6,6 +6,8 @@
 
 #include "ApplicationManager.h"
 
+DatabaseAPI* ApplicationManager::database = nullptr;
+
 void ApplicationManager::start() {
 
     database = new Database();
