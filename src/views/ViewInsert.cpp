@@ -114,7 +114,11 @@ void ViewInsert::processInputFromMain(std::string &input) {
         break;
 
         case 7:
-            std::cout << "Essa opção ainda não foi implementada" << std::endl;
+            ApplicationManager::repository.insert(travel);
+        break;
+
+        case 8:
+            InterfaceManager::setCurrentView(new ViewMenu());
         break;
 
         default:
