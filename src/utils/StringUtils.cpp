@@ -32,3 +32,10 @@ std::vector<std::string> StringUtils::split(const std::string &s, const std::str
 
     return res;
 }
+
+std::string StringUtils::formatFloat(float f, int precision) {
+
+    std::string result = std::to_string(f);
+
+    int pos = result.find('.');
+}

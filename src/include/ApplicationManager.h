@@ -6,6 +6,8 @@
 #define APPLICATIONMANAGER_H
 #include "DatabaseAPI.h"
 
+#include <Repository.h>
+
 
 class ApplicationManager {
 
@@ -15,10 +17,13 @@ public:
 
     static bool isDone();
 
+    static DatabaseAPI *database;
+
+    static Repository repository;
+
 private:
 
     static bool _done;
-    static DatabaseAPI *database;
 };
 
 

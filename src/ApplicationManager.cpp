@@ -12,9 +12,11 @@ DatabaseAPI* ApplicationManager::database = nullptr;
 bool ApplicationManager::_done = false;
 
 void ApplicationManager::start() {
+    database = new Database();
+
+    repository = Repository();
 }
 
-    database = new Database();
 bool ApplicationManager::isDone() {
 
     return _done;

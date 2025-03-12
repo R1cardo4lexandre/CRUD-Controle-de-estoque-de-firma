@@ -4,6 +4,7 @@
 
 #ifndef INTERFACEMANAGER_H
 #define INTERFACEMANAGER_H
+
 #include "ViewInterface.h"
 
 #include <string>

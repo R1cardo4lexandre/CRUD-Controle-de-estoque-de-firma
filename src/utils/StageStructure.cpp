@@ -1,6 +1,6 @@
 #include "StageStructure.h"
 
-StageStructure::StageStructure() {}
+StageStructure::StageStructure() : size(StageSize()) {}
 
 StageStructure::StageStructure(std::string t) {
     type = t;

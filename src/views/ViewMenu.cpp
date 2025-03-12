@@ -3,6 +3,7 @@
 //
 
 #include "InterfaceManager.h"
+#include "ViewInsert.h"
 #include "ViewListAll.h"
 
 #include "ViewMenu.h"
@@ -30,11 +31,14 @@ void ViewMenu::processInput(std::string &input) {
 
     switch(option){
 
+        case 1:
+            InterfaceManager::setCurrentView(new ViewInsert());
+        break;
+
         case 2:
             InterfaceManager::setCurrentView(new ViewListAll());
         break;
 
-        case 1:
         case 3:
         case 4:
         case 5:

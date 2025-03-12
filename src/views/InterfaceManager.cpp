@@ -6,6 +6,7 @@
 #include "ViewMenu.h"
 
 #include <InterfaceManager.h>
+#include <iomanip>
 #include <iostream>
 #include <ostream>
 #include <string>
@@ -17,7 +18,7 @@ std::string InterfaceManager::getInput() {
 
     std::string input;
 
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     return input;
 }
