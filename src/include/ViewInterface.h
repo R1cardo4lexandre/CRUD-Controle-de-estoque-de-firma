@@ -10,13 +10,15 @@
 
 class ViewInterface {
 public:
+    ~ViewInterface();
     virtual void output() = 0;
     virtual void processInput(std::string&) = 0;
 
 protected:
-    ~ViewInterface() = default;
 };
 
+inline ViewInterface::~ViewInterface() {
+}
 
 
 #endif /* VIEWINTERFACE_H */

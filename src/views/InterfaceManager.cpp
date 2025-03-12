@@ -60,6 +60,8 @@ void InterfaceManager::update() {
 
 void InterfaceManager::setCurrentView(ViewInterface *view) {
 
+    delete CURRENT_VIEW;
+
     CURRENT_VIEW = view;
 }
 

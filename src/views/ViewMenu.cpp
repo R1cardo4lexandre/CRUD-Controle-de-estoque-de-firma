@@ -3,6 +3,7 @@
 //
 
 #include "InterfaceManager.h"
+#include "ShowTravel.h"
 #include "ViewInsert.h"
 #include "ViewListAll.h"
 
@@ -40,6 +41,9 @@ void ViewMenu::processInput(std::string &input) {
         break;
 
         case 3:
+            InterfaceManager::setCurrentView(new ShowTravel());
+        break;
+
         case 4:
         case 5:
         case 6:
