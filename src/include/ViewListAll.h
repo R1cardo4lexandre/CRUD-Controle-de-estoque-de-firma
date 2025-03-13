@@ -5,8 +5,9 @@
 #ifndef VIEWLISTALL_H
 #define VIEWLISTALL_H
 
-#include "ShowTravel.h"
+#include "ViewShowTravel.h"
 #include "ViewInterface.h"
+#include "ViewUpdate.h"
 
 
 class ViewListAll : public ViewInterface{
@@ -16,7 +17,9 @@ public:
 
     void processInput(std::string &) override;
 
-    friend ShowTravel;
+    friend ViewShowTravel;
+
+    friend ViewUpdate;
 
 protected:
     ~ViewListAll() = default;
@@ -27,7 +30,7 @@ private:
 
     static std::string formatStructure(StageStructure);
 
-    static std::string formatSize(StageSize);
+    static std::string formatStageSize(StageSize);
 };
 
 

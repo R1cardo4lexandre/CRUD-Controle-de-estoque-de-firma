@@ -32,10 +32,10 @@ std::string ViewListAll::formatTravel(Travel travel) {
 
 std::string ViewListAll::formatStructure(StageStructure structure) {
 
-    return structure.getType() + " (" + formatSize(structure.getSize()) + ")";
+    return structure.getType() + " (" + formatStageSize(structure.getSize()) + ")";
 }
 
-std::string ViewListAll::formatSize(StageSize size) {
+std::string ViewListAll::formatStageSize(StageSize size) {
 
     return std::to_string(size.getWidth()) + " x " + std::to_string(size.getLength()) + " x " + std::to_string(size.getHeight());
 }

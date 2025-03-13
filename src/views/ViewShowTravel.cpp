@@ -4,7 +4,7 @@
 
 #include "Mock.h"
 
-#include "ShowTravel.h"
+#include "ViewShowTravel.h"
 
 #include <InterfaceManager.h>
 #include <iostream>
@@ -12,31 +12,31 @@
 #include <ViewListAll.h>
 #include <ViewMenu.h>
 
-ShowTravel::ShowTravel() : currentSubView(ShowTravel::MAIN), currentResult(0) {
+ViewShowTravel::ViewShowTravel() : currentSubView(ViewShowTravel::MAIN), currentResult(0) {
 
-    subViews.insert(subViews.end(), {&ShowTravel::mainSubview, &ShowTravel::showTravel});
+    subViews.insert(subViews.end(), {&ViewShowTravel::mainSubview, &ViewShowTravel::showTravel});
 
-    inputProcessors.insert(inputProcessors.end(), {&ShowTravel::processInputFromMain, &ShowTravel::processInputFromShowTravel});
+    inputProcessors.insert(inputProcessors.end(), {&ViewShowTravel::processInputFromMain, &ViewShowTravel::processInputFromShowTravel});
 
     travel = Travel();
 }
 
-void ShowTravel::output() {
+void ViewShowTravel::output() {
 
     (this ->*subViews[currentSubView])();
 }
 
-void ShowTravel::processInput(std::string &input) {
+void ViewShowTravel::processInput(std::string &input) {
 
     (this->*inputProcessors[currentSubView])(input);
 }
 
-void ShowTravel::mainSubview() {
+void ViewShowTravel::mainSubview() {
 
     std::cout << "Insira o nome (ou parte do nome) do local para pesquisar: " << std::endl;
 }
 
-void ShowTravel::showTravel() {
+void ViewShowTravel::showTravel() {
 
     std::cout << ViewListAll::formatTravel(results[currentResult]) << std::endl << std::endl;
 
@@ -46,7 +46,7 @@ void ShowTravel::showTravel() {
 }
 
 
-void ShowTravel::processInputFromMain(std::string &input) {
+void ViewShowTravel::processInputFromMain(std::string &input) {
     results.erase(results.begin(), results.end());
 
     // TODO: Modificar essa linha para usar a classe Repository
@@ -58,12 +58,12 @@ void ShowTravel::processInputFromMain(std::string &input) {
 
         currentResult = 0;
 
-        currentSubView = ShowTravel::SHOW_TRAVEL;
+        currentSubView = ViewShowTravel::SHOW_TRAVEL;
     }
     else InterfaceManager::setCurrentView(new ViewMenu());
 }
 
-void ShowTravel::processInputFromShowTravel(std::string &input) {
+void ViewShowTravel::processInputFromShowTravel(std::string &input) {
 
     int option;
 

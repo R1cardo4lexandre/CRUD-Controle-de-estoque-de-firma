@@ -10,9 +10,9 @@
 #include <vector>
 
 
-class ShowTravel : public ViewInterface{
+class ViewShowTravel : public ViewInterface{
 public:
-    ShowTravel();
+    ViewShowTravel();
 
     void output() override;
 
@@ -28,9 +28,9 @@ private:
 
     int currentSubView;
 
-    std::vector<void (ShowTravel::*)()> subViews;
+    std::vector<void (ViewShowTravel::*)()> subViews;
 
-    std::vector<void (ShowTravel::*)(std::string&)> inputProcessors;
+    std::vector<void (ViewShowTravel::*)(std::string&)> inputProcessors;
 
     std::vector<Travel> results;
 

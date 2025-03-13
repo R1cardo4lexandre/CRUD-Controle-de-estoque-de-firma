@@ -3,9 +3,10 @@
 //
 
 #include "InterfaceManager.h"
-#include "ShowTravel.h"
+#include "ViewShowTravel.h"
 #include "ViewInsert.h"
 #include "ViewListAll.h"
+#include "ViewUpdate.h"
 
 #include "ViewMenu.h"
 
@@ -41,10 +42,13 @@ void ViewMenu::processInput(std::string &input) {
         break;
 
         case 3:
-            InterfaceManager::setCurrentView(new ShowTravel());
+            InterfaceManager::setCurrentView(new ViewShowTravel());
         break;
 
         case 4:
+            InterfaceManager::setCurrentView(new ViewUpdate());
+        break;
+
         case 5:
         case 6:
         case 7:
