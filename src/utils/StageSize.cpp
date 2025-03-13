@@ -12,3 +12,11 @@ void StageSize::setLength(float length) {this->length = length;}
 
 float StageSize::getHeight() {return height;}
 void StageSize::setHeight(float height) {this->height = height;}
+
+bool StageSize::equals(StageSize sz) {
+
+    if (width == sz.width && length == sz.length && height == sz.height) {
+        return true;
+    }
+    return false;
+}

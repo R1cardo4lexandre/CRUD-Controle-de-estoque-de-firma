@@ -15,9 +15,13 @@ public:
 
     ~Repository();
 
-    static void insert(Travel);
+    static void insert(const Travel&);
 
     static void deleteTravel(Travel);
+
+    static std::vector<Travel> getAll();
+
+
 
 private:
 
