@@ -2,7 +2,6 @@
 #define TRAVEL_H
 
 #include "StageStructure.h"
-#include "date.h"
 
 /*Esta classe será usada para registro de viagens de trabalho.
   - Os atributos stageStructure e location referem-se, respectivamente, às estruturas que
@@ -17,11 +16,11 @@ public:
     std::string getLocation();
     void setLocation(std::string);
 
-    date::year_month_day getStartDate();
-    void setStartDate(int, int, int);
+    std::string getStartDate();
+    void setStartDate(std::string);
 
-    date::year_month_day getFinalDate();
-    void setFinalDate(int, int, int);
+    std::string getFinalDate();
+    void setFinalDate(std::string);
 
     StageStructure getStructure();
     void setStructure(StageStructure);
@@ -31,8 +30,8 @@ public:
 private:
     std::string location;
     StageStructure structure;
-    date::year_month_day startDate;
-    date::year_month_day finalDate;
+    std::string startDate;
+    std::string finalDate;
 
 };
 

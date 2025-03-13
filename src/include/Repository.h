@@ -21,11 +21,19 @@ public:
 
     static std::vector<Travel> getAll();
 
+    static std::vector<Travel> search(std::string);
+
+    static int getID(Travel);
+
+    static Travel update(Travel, int);
+
+    static void save();
 
 
 private:
 
     static std::vector<Travel> travels;
+    static std::string tableName;
 };
 
 #endif //REPOSITORY_H
