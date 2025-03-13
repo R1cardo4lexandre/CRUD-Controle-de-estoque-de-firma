@@ -21,7 +21,8 @@ private:
     static std::vector<float> floatMocks;
     static std::vector<std::string> stringMocks1;
     static std::vector<std::string> stringMocks2;
-    static std::vector<int> dateMocks;
+    static std::vector<std::string> dateMocks1;
+    static std::vector<std::string> dateMocks2;
     
 };
 
