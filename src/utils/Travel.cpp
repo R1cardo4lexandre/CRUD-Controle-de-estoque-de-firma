@@ -17,3 +17,12 @@ void Travel::setFinalDate(int y, int m, int d) {this->finalDate = date::year{y}/
 //operador de acesso para a classe StageStructure
 StageStructure Travel::getStructure(){return structure;}
 void Travel::setStructure(StageStructure structure){this->structure = structure;}
+
+bool Travel::equals(Travel t) {
+
+    if (location == t.location && startDate == t.startDate && finalDate == t.finalDate
+        && structure.equals(structure)) {
+        return true;
+    }
+    return false;
+}

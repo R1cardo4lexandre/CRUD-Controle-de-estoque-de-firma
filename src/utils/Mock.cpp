@@ -21,3 +21,7 @@ void Mock::initMock() {
         travelMocks[i].setFinalDate(dateMocks[i+2], dateMocks[i], dateMocks[i+1]);
     }
 }
+
+Travel Mock::getTravelMock (int i) {
+    return travelMocks[i];
+}

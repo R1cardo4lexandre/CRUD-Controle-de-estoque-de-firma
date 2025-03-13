@@ -22,6 +22,8 @@ public:
     StageSize getSize();
     void setSize(StageSize);
 
+    bool equals(StageStructure);
+
 private:
     std::string type;
     StageSize size;

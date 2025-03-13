@@ -14,6 +14,8 @@ public:
 
     static void initMock();
 
+    static Travel getTravelMock(int);
+
 private:
     static std::vector<Travel> travelMocks;
     static std::vector<float> floatMocks;
