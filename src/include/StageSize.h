@@ -19,6 +19,8 @@ public:
     float getHeight();
     void setHeight(float);
 
+    bool equals(StageSize);
+
 private:
     float width;
     float length;

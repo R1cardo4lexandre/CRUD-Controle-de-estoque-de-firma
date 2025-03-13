@@ -26,6 +26,8 @@ public:
     StageStructure getStructure();
     void setStructure(StageStructure);
 
+    bool equals(Travel);
+
 private:
     std::string location;
     StageStructure structure;
