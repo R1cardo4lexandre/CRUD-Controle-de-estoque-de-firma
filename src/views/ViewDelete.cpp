@@ -1,53 +1,50 @@
 //
-// Created by cicero on 12/03/25.
+// Created by cicero on 13/03/25.
 //
 
-#include "Mock.h"
-
-#include "ViewShowTravel.h"
-
 #include "InterfaceManager.h"
+#include "Mock.h"
+#include "Repository.h"
 #include "ViewListAll.h"
 #include "ViewMenu.h"
+#include "ViewDelete.h"
 
-#include <iostream>
-#include <ostream>
+ViewDelete::ViewDelete() : currentSubView(ViewDelete::MAIN), currentResult(0) {
 
-ViewShowTravel::ViewShowTravel() : currentSubView(ViewShowTravel::MAIN), currentResult(0) {
+    this -> subViews.insert(subViews.end(), {&ViewDelete::mainSubview, &ViewDelete::showTravel});
 
-    subViews.insert(subViews.end(), {&ViewShowTravel::mainSubview, &ViewShowTravel::showTravel});
-
-    inputProcessors.insert(inputProcessors.end(), {&ViewShowTravel::processInputFromMain, &ViewShowTravel::processInputFromShowTravel});
+    inputProcessors.insert(inputProcessors.end(), {&ViewDelete::processInputFromMain, &ViewDelete::processInputFromShowTravel});
 
     travel = Travel();
 }
 
-void ViewShowTravel::output() {
+void ViewDelete::output() {
 
     (this ->*subViews[currentSubView])();
 }
 
-void ViewShowTravel::processInput(std::string &input) {
+void ViewDelete::processInput(std::string &input) {
 
     (this->*inputProcessors[currentSubView])(input);
 }
 
-void ViewShowTravel::mainSubview() {
+void ViewDelete::mainSubview() {
 
     std::cout << "Insira o nome (ou parte do nome) do local para pesquisar: " << std::endl;
 }
 
-void ViewShowTravel::showTravel() {
+void ViewDelete::showTravel() {
 
     std::cout << ViewListAll::formatTravel(results[currentResult]) << std::endl << std::endl;
 
     std::cout << "1. Exibir anterior" << std::endl;
     std::cout << "2. Exibir próximo" << std::endl;
-    std::cout << "3. Voltar ao menu inicial" << std::endl;
+    std::cout << "3. Excluir" << std::endl;
+    std::cout << "4. Voltar ao menu inicial" << std::endl;
 }
 
 
-void ViewShowTravel::processInputFromMain(std::string &input) {
+void ViewDelete::processInputFromMain(std::string &input) {
     results.erase(results.begin(), results.end());
 
     // TODO: Modificar essa linha para usar a classe Repository
@@ -59,12 +56,12 @@ void ViewShowTravel::processInputFromMain(std::string &input) {
 
         currentResult = 0;
 
-        currentSubView = ViewShowTravel::SHOW_TRAVEL;
+        currentSubView = ViewDelete::SHOW_TRAVEL;
     }
     else InterfaceManager::setCurrentView(new ViewMenu());
 }
 
-void ViewShowTravel::processInputFromShowTravel(std::string &input) {
+void ViewDelete::processInputFromShowTravel(std::string &input) {
 
     int option;
 
@@ -86,6 +83,12 @@ void ViewShowTravel::processInputFromShowTravel(std::string &input) {
         break;
 
         case 3:
+            Repository::deleteTravel(results[currentResult]);
+
+            InterfaceManager::setCurrentView(new ViewMenu());
+        break;
+
+        case 4:
             InterfaceManager::setCurrentView(new ViewMenu());
         break;
 
@@ -93,3 +96,4 @@ void ViewShowTravel::processInputFromShowTravel(std::string &input) {
             InterfaceManager::printInvalidOption();
     }
 }
+

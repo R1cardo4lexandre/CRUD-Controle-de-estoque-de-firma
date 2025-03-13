@@ -5,6 +5,7 @@
 #ifndef VIEWLISTALL_H
 #define VIEWLISTALL_H
 
+#include "ViewDelete.h"
 #include "ViewShowTravel.h"
 #include "ViewInterface.h"
 #include "ViewUpdate.h"
@@ -20,6 +21,8 @@ public:
     friend ViewShowTravel;
 
     friend ViewUpdate;
+
+    friend ViewDelete;
 
 protected:
     ~ViewListAll() = default;

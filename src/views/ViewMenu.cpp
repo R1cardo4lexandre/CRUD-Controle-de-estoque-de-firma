@@ -50,6 +50,9 @@ void ViewMenu::processInput(std::string &input) {
         break;
 
         case 5:
+            InterfaceManager::setCurrentView(new ViewDelete());
+        break;
+
         case 6:
         case 7:
             std::cout << "Essa opção ainda não foi implementada" << std::endl;
