@@ -108,13 +108,15 @@ void ViewInsert::processInputFromMain(std::string &input) {
         break;
 
         case 6:
-            ApplicationManager::repository.insert(travel);
+            Repository::insert(travel);
 
             InterfaceManager::setCurrentView(new ViewMenu());
         break;
 
         case 7:
-            ApplicationManager::repository.insert(travel);
+            Repository::insert(travel);
+
+            travel = Travel();
         break;
 
         case 8:

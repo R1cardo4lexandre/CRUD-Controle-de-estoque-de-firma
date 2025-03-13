@@ -3,6 +3,7 @@
 //
 
 #include "Mock.h"
+#include "Repository.h"
 #include "Travel.h"
 
 #include "ViewListAll.h"
@@ -13,7 +14,7 @@
 
 void ViewListAll::output() {
 
-    std::vector<Travel> travels = Mock::travelMocks;
+    std::vector<Travel> travels = Repository::getAll();
 
     for (int i = 0; i < travels.size(); i++) std::cout << std::to_string(i + 1) + ". " + formatTravel(travels[i]) << std::endl;
 
