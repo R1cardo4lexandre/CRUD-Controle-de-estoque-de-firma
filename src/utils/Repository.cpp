@@ -40,7 +40,7 @@ Repository::Repository() {
 
 Repository::~Repository() {}
 
-void Repository::insert(const Travel& t) {
+void Repository::insert(const Travel &t) {
 
    travels.emplace_back(t);
 }
@@ -88,7 +88,7 @@ int Repository::getID(Travel t) {
     return -1;
 }
 
-Travel Repository::update(Travel t, int pos) {
+void Repository::update(Travel t, int pos) {
 
     travels[pos] = t;
 }

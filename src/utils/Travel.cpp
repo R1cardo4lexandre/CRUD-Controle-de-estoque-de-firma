@@ -1,6 +1,7 @@
 #include "Travel.h"
 
-Travel::Travel() {}
+Travel::Travel() : structure(StageStructure()), startDate("31/12/1900"), finalDate("31/12/1900") {
+}
 
 //get e set do atributo location
 std::string Travel::getLocation(){return location;}

@@ -15,6 +15,8 @@ public:
     static std::string join(const std::vector<std::string>&, const std::string&);
 
     static std::vector<std::string> split(const std::string&, const std::string&);
+
+    static std::string formatFloat(float, int);
 };
 
 

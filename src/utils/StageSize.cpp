@@ -1,12 +1,8 @@
 #include "StageSize.h"
 
-StageSize::StageSize(){}
+StageSize::StageSize() : width(0.0f), length(0.0f), height(0.0f) {}
 
-StageSize::StageSize(float w, float l, float h) {
-    width = w;
-    length = l;
-    height = h;
-}
+StageSize::StageSize(float w, float l, float h) : width(w), length(l), height(h) {}
 
 float StageSize::getWidth() {return width;}
 void StageSize::setWidth(float width) {this->width = width;}

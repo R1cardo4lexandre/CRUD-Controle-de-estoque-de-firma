@@ -5,6 +5,7 @@
 #ifndef TIMEUTILS_H
 #define TIMEUTILS_H
 #include <string>
+#include <vector>
 
 
 class TimeUtils {
@@ -12,6 +13,8 @@ class TimeUtils {
 public:
 
     static std::string getTimeStamp();
+
+    static std::vector<int> validateDate(std::string &);
 };
 
 
