@@ -28,7 +28,7 @@ std::vector<int> TimeUtils::validateDate(std::string &input) {
 
     std::vector<int> result;
 
-    std::regex regex(R"((\d{4,})-(\d{1,2})-(\d{1,2}))");
+    std::regex regex(R"((\d{1,2})/(\d{1,2})/(\d{4,}))");
 
     std::smatch match;
 

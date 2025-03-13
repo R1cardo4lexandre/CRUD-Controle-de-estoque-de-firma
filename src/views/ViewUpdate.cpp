@@ -56,19 +56,18 @@ void ViewUpdate::showUpdatingOptions() {
     std::cout << "3. Tamanho do palco: " + ViewListAll::formatStageSize(stageSize) << std::endl;
     std::cout << "4. Data de início: " << travel.getStartDate() << std::endl;
     std::cout << "5. Data de término: " << travel.getFinalDate() << std::endl;
-    std::cout << "6. Salvar e retornar ao menu anterior" << std::endl;
-    std::cout << "7. Salvar e cadastrar outra viagem" << std::endl;
-    std::cout << "8. Retornar ao menu anterior sem salvar" << std::endl;
+    std::cout << "6. Salvar e retornar ao menu inicial" << std::endl;
+    std::cout << "7. Salvar e alterar outra viagem" << std::endl;
+    std::cout << "8. Retornar ao menu inicial sem salvar" << std::endl;
 }
 
 void ViewUpdate::processInputFromMain(std::string &input) {
 
     results.erase(results.begin(), results.end());
 
-    // TODO: Modificar essa linha para usar a classe Repository
-    results.insert(results.end(), Mock::travelMocks.begin(), Mock::travelMocks.end());
+    for (Travel t : Repository::search(input)) {results.emplace_back(t);}
 
-    std::cout << "Foram encontrados " << results.size() << " resultado(s). Exibindo o primeiro" << std::endl;
+    std::cout << "Foram encontrados " << results.size() << " resultado(s). Exibindo o primeiro" << std::endl << std::endl;
 
     if (!results.empty()) {
 
@@ -102,6 +101,8 @@ void ViewUpdate::processInputFromShowTravel(std::string &input) {
 
         case 3:
             travel = results[currentResult];
+
+            indexOfCurrentResultInRepository = Repository::getID(travel);
 
             currentSubView = SHOW_UPDATING_OPTIONS;
         break;
@@ -149,13 +150,15 @@ void ViewUpdate::processInputFromShowUpdatingOptions(std::string &input) {
         break;
 
         case 6:
-            ApplicationManager::repository.insert(travel);
+            Repository::update(travel, indexOfCurrentResultInRepository);
 
             InterfaceManager::setCurrentView(new ViewMenu());
         break;
 
         case 7:
-            ApplicationManager::repository.insert(travel);
+            Repository::update(travel, indexOfCurrentResultInRepository);
+
+            currentSubView = MAIN;
         break;
 
         case 8:
@@ -242,7 +245,7 @@ void ViewUpdate::processInputFromUpdateStartDate(std::string &input) {
 
     if (result.size() == 3) {
 
-        travel.setStartDate(result[0], result[1], result[2]);
+        travel.setStartDate(std::to_string(result[0]) + std::to_string(result[1]) + std::to_string(result[0]));
 
         currentSubView = ViewUpdate::SHOW_UPDATING_OPTIONS;
     }
@@ -258,7 +261,7 @@ void ViewUpdate::processInputFromUpdateFinalDate(std::string &input) {
 
     if (result.size() == 3) {
 
-        travel.setFinalDate(result[0], result[1], result[2]);
+        travel.setFinalDate(std::to_string(result[0]) + std::to_string(result[1]) + std::to_string(result[2]));
 
         currentSubView = ViewUpdate::SHOW_UPDATING_OPTIONS;
     }

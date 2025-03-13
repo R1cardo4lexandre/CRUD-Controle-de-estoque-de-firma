@@ -61,12 +61,12 @@ void ViewInsert::updateStageSize() {
 
 void ViewInsert::updateStartDate() {
 
-    std::cout << "Insira a nova data de início (a-m-d): " << std::endl;
+    std::cout << "Insira a nova data de início (d/m/a): " << std::endl;
 }
 
 void ViewInsert::updateFinalDate() {
 
-    std::cout << "Insira a nova data de término (a-m-d): " << std::endl;
+    std::cout << "Insira a nova data de término (d/m/a): " << std::endl;
 }
 
 void ViewInsert::processInput(std::string &input) {
@@ -180,13 +180,13 @@ void ViewInsert::processInputFromUpdateStartDate(std::string &input) {
 
     if (result.size() == 3) {
 
-        travel.setStartDate(result[0], result[1], result[2]);
+        travel.setStartDate(std::to_string(result[0]) + "/" + std::to_string(result[1]) + "/" + std::to_string(result[2]));
 
         currentSubView = MAIN;
     }
     else {
 
-        std::cout << "Formato inválido. Insira a data no formato a-m-d" << std::endl;
+        std::cout << "Formato inválido. Insira a data no formato d/m/a" << std::endl;
     }
 }
 
@@ -196,13 +196,13 @@ void ViewInsert::processInputFromUpdateFinalDate(std::string &input) {
 
     if (result.size() == 3) {
 
-        travel.setFinalDate(result[0], result[1], result[2]);
+        travel.setFinalDate(std::to_string(result[0]) + "/" + std::to_string(result[1]) + "/" + std::to_string(result[2]));
 
         currentSubView = MAIN;
     }
     else {
 
-        std::cout << "Formato inválido. Insira a data no formato a-m-d" << std::endl;
+        std::cout << "Formato inválido. Insira a data no formato d/m/a" << std::endl;
     }
 }
 

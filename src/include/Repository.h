@@ -25,7 +25,7 @@ public:
 
     static int getID(Travel);
 
-    static Travel update(Travel, int);
+    static void update(Travel, int);
 
     static void save();
 

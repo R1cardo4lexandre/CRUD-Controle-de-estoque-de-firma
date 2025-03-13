@@ -47,10 +47,9 @@ void ViewDelete::showTravel() {
 void ViewDelete::processInputFromMain(std::string &input) {
     results.erase(results.begin(), results.end());
 
-    // TODO: Modificar essa linha para usar a classe Repository
-    results.insert(results.end(), Mock::travelMocks.begin(), Mock::travelMocks.end());
+    for (Travel t : Repository::search(input)) {results.emplace_back(t);}
 
-    std::cout << "Foram encontrados " << results.size() << " resultado(s). Exibindo o primeiro" << std::endl;
+    std::cout << "Foram encontrados " << results.size() << " resultado(s). Exibindo o primeiro" << std::endl << std::endl;
 
     if (!results.empty()) {
 

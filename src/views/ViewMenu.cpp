@@ -2,10 +2,12 @@
 // Created by cicero on 19/02/25.
 //
 
+#include "ApplicationManager.h"
 #include "InterfaceManager.h"
 #include "ViewShowTravel.h"
 #include "ViewInsert.h"
 #include "ViewListAll.h"
+#include "ViewReport.h"
 #include "ViewUpdate.h"
 
 #include "ViewMenu.h"
@@ -54,8 +56,11 @@ void ViewMenu::processInput(std::string &input) {
         break;
 
         case 6:
+            InterfaceManager::setCurrentView(new ViewReport());
+        break;
+
         case 7:
-            std::cout << "Essa opção ainda não foi implementada" << std::endl;
+            ApplicationManager::setDone(true);
         break;
 
         default:

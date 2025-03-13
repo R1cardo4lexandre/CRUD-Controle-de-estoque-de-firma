@@ -35,6 +35,8 @@ private:
 
     int currentResult;
 
+    int indexOfCurrentResultInRepository;
+
     void mainSubview();
 
     void showTravel();

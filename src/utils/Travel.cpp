@@ -1,6 +1,6 @@
 #include "Travel.h"
 
-Travel::Travel() : structure(StageStructure()), startDate(date::year{1900}/12/31), finalDate(date::year{1900}/12/31) {
+Travel::Travel() : structure(StageStructure()), startDate("31/12/1900"), finalDate("31/12/1900") {
 }
 
 //get e set do atributo location
